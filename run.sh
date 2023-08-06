@@ -82,6 +82,59 @@ select_mesh () {
     fi
 }
 
+select_basic () {
+
+}
+
+select_combustion () {
+
+}
+
+select_compressible () {
+
+}
+
+select_discrete_methods () {
+
+}
+
+select_dns () {
+
+}
+
+select_financial () {
+
+}
+
+select_finite_area () {
+
+}
+
+select_Heat_Transfer () {
+
+}
+
+select_Incompressible () {
+
+}
+
+select_Lagrangian () {
+
+}
+
+select_Multiphase () {
+
+}
+
+select_StressAnalysis () {
+    
+}
+
+select_lib_openFoam () {
+
+}
+
+
 openfoam2306
 
 mesh_conversion_option
@@ -92,4 +145,4 @@ select_mesh_option
 
 select_mesh
 
-
+select_lib_openFoam

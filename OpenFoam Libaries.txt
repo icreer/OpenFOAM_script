@@ -1,0 +1,147 @@
+BASIC //
+chtMultiRegionFoam
+laplacianFoam
+overLaplacianDyMFoam
+overPotentialFoam
+potentialFoam
+scalarTransportFoam
+simpleFoam
+
+COMBUSTION //
+chemFoam
+coldEngineFoam
+fireFoam
+PDRFoam
+reactingFoam
+rhoReactingFoam
+XiDyMFoam
+XiEngineFoam
+XiFoam
+
+COMPRESSIBLE //
+acousticFoam
+overRhoPimpleDyMFoam
+overRhoSimpleFoam
+rhoCentralFoam
+rhoPimpleAdiabaticFoam
+rhoPimpleFoam
+rhoPorousSimpleFoam
+rhoSimpleFoam
+sonicDyMFoam
+sonicFoam
+sonicLiquidFoam
+
+DISCRETEMETHODS //
+dsmcFoam
+molecularDynamics
+
+DNS //
+dnsFoam
+
+ELECTROMAGNETICS //
+electrostaicFoam
+mhdFoam
+
+FINANCIAL //
+financialFoam
+
+FINITEAREA //
+liquidFilmFoam
+sphereSurfactantFoam
+sufactantFoam
+
+HEATTRANSFER //
+buoyantBoussinesqPimpleFoam
+buoyantBoussinesqSimpleFoam
+buoyantPimpleSimpleFoam
+buoyantSimpleFoam
+chtMultiRegionFoam
+chtMultiRegionSimpleFoam
+chtMultiRegionTwoPhaseEulerFoam
+overBuoyantPimpleDyMFoam
+solidFoam
+
+INCOMPRESSIBLE //
+adjointOptimisationFoam
+adjointShapeOptimizationFoam
+boundaryFoam
+icoFoam
+lumpedPointMotion
+nonNewtonianlcoFoam
+overPimpleDyMFoam
+overSimpleFoam
+pimpleFoam
+pisoFoam
+porousSimpleFoam
+shallowWaterFoam
+simpleFoam
+SRFPimpleFoam
+SRFSimpleFoam
+
+IO // May not be added
+cavity_parProfiling
+dictionary
+fileHandler
+systemCall
+
+LAGRANGIAN //
+coalChemistryFoam
+DPMFoam
+icoUncoupledKinematicParcelDyMFoam
+icoUncoupledKinematicParcelFoam
+kinematicParcelFoam
+MPPICDyMFoam
+MIPPICFoam
+reactingHeterogenousParcelFoam
+reactingParcelFoam
+simpleReactingParcelFoam
+sprayFoam
+uncoupledKinematicParelDyMFoam
+
+MULTIPHASE //
+cavitatingFoam
+compressibleInterDyMFoam
+compressibleInterFoam
+compressibleInterIsoFoam
+compressibleMultiphaseInterFoam
+driftFluxFoam
+icoReactingMultiphaseInterFoam
+interCondensatingEvaporatingFoam
+interFoam
+interIsoFoam
+interMixingFoam
+interPhaseChangeDyMFoam
+interPHaseChangeFoam
+MPPICInterFoam
+multiphaseEulerFoam
+multiphaseInterFoam
+overCompressibleINterDyMFoam
+overINterDyMfoam
+overInterPHaseChangeDyMFoam
+potentialFreeSurfaceDyMFoam
+potentialFreeSurfaceFoam
+reactingMultiphaseEulerFoam
+reactingTwoPhaseEulerFoam
+twoLiquidMixingFoam
+twoPhaseEulerFoam
+
+STRESSANALYSIS //
+solidDisplacementFoam
+solidEquilibriumDisplacementFoam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

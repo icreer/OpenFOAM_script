@@ -26,6 +26,8 @@ mesh_conversion_option () {
 }
 
 mesh_conversion () {
+    mesh_conversion_option
+
     if [["$meshc" -eq 1]]; then
         ansysToFoam
     elif [["$meshc" -eq 2]]; then
@@ -75,6 +77,8 @@ select_mesh_option () {
 }
 
 select_mesh () {
+    select_mesh_option
+
     if [["$mesh" -eq 1]]; then
         blockMesh
     elif [["$mesh" -eq 2]]; then
@@ -82,24 +86,157 @@ select_mesh () {
     fi
 }
 
-select_basic () {
+select_basic_option () {
+    read -p "
+    1.chtMultiRegionFoam
+    2.laplacianFoam
+    3.overLaplacianDyMFoam
+    4.overPotentialFoam
+    5.potentialFoam
+    6.scalarTransportFoam
+    7.simpleFoam
+    Please Select on of the basic libaries[1-7]:" basic
+}
 
+select_basic () {
+    select_basic_option
+
+    if [["$basic" -eq 1]]; then
+        chtMultiRegionFoam
+    elif [["$basic" -eq 2]]; then
+        laplacianFoam
+    elif [["$basic" -eq 3]]; then
+        overLaplacianDyMFoam
+    elif [["$basic" -eq 4]]; then
+        overPotentialFoam
+    elif [["$basic" -eq 5]]; then
+        potentialFoam
+    elif [["$basic" -eq 6]]; then
+        scalarTransportFoam
+    elif [["$basic" -eq 7]]; then
+        simpleFoam
+    fi
+}
+
+select_combustion_option (){
+    read -p"
+    1.chemFoam
+    2.coldEngineFoam
+    3.fireFoam
+    4.PDRFoam
+    5.reactingFoam
+    6.rhoRactingFoam
+    7.XiDyMFoam
+    8.XiEngineFoam
+    9.XiFoam
+    Please Select from the combustion libaries[1-9]:" comb
 }
 
 select_combustion () {
+    select_combustion_option
 
+    if [["$comb" -eq 1]]; then
+        chemFoam
+    elif [["$comb" -eq 2]]; then
+        coldEngineFoam
+    elif [["$comb" -eq 3]]; then
+        fireFoam
+    elif [["$comb" -eq 4]]; then
+        PDRFoam
+    elif [["$comb" -eq 5]]; then
+        reactingFoam
+    elif [["$comb" -eq 6]]; then
+        rhoRactingFoam
+    elif [["$comb" -eq 7]]; then
+        XiDyMFoam
+    elif [["$comb" -eq 8]]; then
+        XiEngineFoam
+    elif [["$comb" -eq 9]]; then
+        XiFoam
+    fi
+
+}
+
+select_compressible_option () {
+    read -p "
+    1.acousticFoam
+    2.overRhoPimpleDyMFoam
+    3.overRhoSimpleFoam
+    4.rhoCentralFoam
+    5.rhoPimpleAdiabaticFoam
+    6.rhoPimpleFoam
+    7.rhoPorousSimpleFoam
+    8.rhoSimpleFoam
+    9.sonicDyMFoam
+    10.sonicFoam
+    11.sonicLiquidFoam
+    Please Select from the compressible libaries[1-11]:" compress
 }
 
 select_compressible () {
+    select_compressible_option
 
+    if [["$compress" -eq 1]]; then
+        acousticFoam
+    elif [["$compress" -eq 2]]; then
+        overRhoPimpleDyMFoam
+    elif [["$compress" -eq 3]]; then
+        overRhoSimpleFoam
+    elif [["$compress" -eq 4]]; then
+        rhoCentralFoam
+    elif [["$compress" -eq 5]]; then
+        rhoPimpleAdiabaticFoam
+    elif [["$compress" -eq 6]]; then
+        rhoPimpleFoam
+    elif [["$compress" -eq 7]]; then
+        rhoPorousSimpleFoam
+    elif [["$compress" -eq 8]]; then
+        rhoSimpleFoam
+    elif [["$compress" -eq 9]]; then
+        sonicDyMFoam
+    elif [["$compress" -eq 10]]; then
+        sonicFoam
+    elif [["$compress" -eq 11]]; then
+        sonicLiquidFoam
+    fi
+
+}
+
+discrete_methods_options () {
+    read -p"
+    1.dsmcFoam
+    2.molecularDynamics
+    Please Select from the Discrete Methods Libaries[1-2]:"dm
 }
 
 select_discrete_methods () {
-
+    discrete_methods_options
+    if [["$dm" -eq 1]]; then
+        dsmcFoam
+    elif [["$dm" -eq 2]]; then
+        molecularDynamics
+    fi
 }
 
 select_dns () {
+    dnsFoam
+}
 
+electromagnetics_option (){
+    read -p"
+    1.electrostaicFoam
+    2.mhdFoam
+    Please Select from the electromagnetics Libaries[1-2]:" em
+}
+
+select_electromagnetics () {
+    electromagnetics_option
+
+    if [["$em" -eq 1]]; then
+        electrostaicFoam
+    elif [["$em" -eq 2]]; then
+        mhdFoam
+    fi
 }
 
 select_financial () {
@@ -130,18 +267,61 @@ select_StressAnalysis () {
     
 }
 
+select_lib_openFoam_option () {
+    read -p "
+    Please Select the type of CFD you are running
+    1.Basic
+    2.Compustion
+    3.Compressible
+    4.Discrete Methods
+    5.DNS
+    6.Electromagnetics
+    7.Financial
+    8.Finite Area
+    9.Heat Transfer
+    10.Incompressible
+    11.Lagrangian
+    12.Multi-Phase
+    13.Stress Analysis
+    Enter a number[1-13]:" lib
+}
+
 select_lib_openFoam () {
+    select_lib_openFoam_option
+
+    if [["$lib" -eq 1]]; then
+        select_basic
+    elif [["$lib" -eq 2]]; then
+        select_combustion
+    elif [["$lib" -eq 3]]; then
+        select_compressible
+    elif [["$lib" -eq 4]]; then
+        select_discrete_methods
+    elif [["$lib" -eq 5]]; then
+        select_dns
+    elif [["$lib" -eq 6]]; then
+        select_electromagnetics
+    elif [["$lib" -eq 7]]; then
+        select_financial
+    elif [["$lib" -eq 8]]; then
+        select_finite_area
+    elif [["$lib" -eq 9]]; then
+        select_Heat_Transfer
+    elif [["$lib" -eq 10]]; then
+        select_Incompressible
+    elif [["$lib" -eq 11]]; then
+        select_Lagrangian
+    elif [["$lib" -eq 12]]; then
+        select_Multiphase
+    elif [["$lib" -eq 13]]; then
+        select_StressAnalysis
+    fi
 
 }
 
-
 openfoam2306
 
-mesh_conversion_option
-
 mesh_conversion
-
-select_mesh_option
 
 select_mesh
 

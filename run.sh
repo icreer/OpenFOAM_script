@@ -240,31 +240,268 @@ select_electromagnetics () {
 }
 
 select_financial () {
+    financialFoam
+}
+
+finite_area_option () {
+    read -p"
+    1.liquidFilmFoam
+    2.sphereSurfactantFoam
+    3.sufactantFoam
+    Please Select from the finite area Libaries[1-3]:" fa
 
 }
 
 select_finite_area () {
+    finite_area_option
+    if [["$fa" -eq 1]]; then
+        liquidFilmFoam
+    elif [["$fa" -eq 2]]; then
+        sphereSurfactantFoam
+    elif [["$fa" -eq 3]]; then
+        sufactantFoam
+    fi
 
+}
+
+Heat_Transfer_option () {
+    read =p "
+    1.buoyantBoussinesqPimpleFoam
+    2.buoyantBoussinesqSimpleFoam
+    3.buoyantPimpleSimpleFoam
+    4.buoyantSimpleFoam
+    5.chtMultiRegionFoam
+    6.chtMultiRegionSimpleFoam
+    7.chtMultiRegionTwoPhaseEulerFoam
+    8.overBuoyantPimpleDyMFoam
+    9.solidFoam
+    Please select one of the Heat Transfer Libaries[1-9]:" ht
 }
 
 select_Heat_Transfer () {
+    Heat_Transfer_option
 
+    if [["$ht" -eq 1]]; then
+        buoyantBoussinesqPimpleFoam
+    elif [["$ht" -eq 2]]; then
+        buoyantBoussinesqSimpleFoam
+    elif [["$ht" -eq 3]]; then
+        buoyantPimpleSimpleFoam
+    elif [["$ht" -eq 4]]; then
+        buoyantSimpleFoam
+    elif [["$ht" -eq 5]]; then
+        chtMultiRegionFoam
+    elif [["$ht" -eq 6]]; then
+        chtMultiRegionSimpleFoam
+    elif [["$ht" -eq 7]]; then
+        chtMultiRegionTwoPhaseEulerFoam
+    elif [["$ht" -eq 8]]; then
+        overBuoyantPimpleDyMFoam
+    elif [["$ht" -eq 9]]; then
+        solidFoam
+    fi
+}
+
+Incompressible_option () {
+    read -p "
+    1.adjointOptimisationFoam
+    2.adjointShapeOptimizationFoam
+    3.boundaryFoam
+    4.icoFoam
+    5.lumpedPointMotion
+    6.nonNewtonianlcoFoam
+    7.overPimpleDyMFoam
+    8.overSimpleFoam
+    9.pimpleFoam
+    10.pisoFoam
+    11.porousSimpleFoam
+    12.shallowWaterFoam
+    13.simpleFoam
+    14.SRFPimpleFoam
+    15.SRFSimpleFoam
+    Please select on of the Incompressible Libaries[1-15]:" Incompress
 }
 
 select_Incompressible () {
+    Incompressible_option
+    if [["$Incompress" -eq 1]]; then
+        adjointOptimisationFoam
+    elif [["$Incompress" -eq 2]]; then
+        adjointShapeOptimizationFoam
+    elif [["$Incompress" -eq 3]]; then
+        boundaryFoam
+    elif [["$Incompress" -eq 4]]; then
+        icoFoam
+    elif [["$Incompress" -eq 5]]; then
+        lumpedPointMotion
+    elif [["$Incompress" -eq 6]]; then
+        nonNewtonianlcoFoam
+    elif [["$Incompress" -eq 7]]; then
+        overPimpleDyMFoam
+    elif [["$Incompress" -eq 8]]; then
+        overSimpleFoam
+    elif [["$Incompress" -eq 9]]; then
+        pimpleFoam
+    elif [["$Incompress" -eq 10]]; then
+        pisoFoam
+    elif [["$Incompress" -eq 11]]; then
+        porousSimpleFoam
+    elif [["$Incompress" -eq 12]]; then
+        shallowWaterFoam
+    elif [["$Incompress" -eq 13]]; then
+        simpleFoam
+    elif [["$Incompress" -eq 14]]; then
+        SRFPimpleFoam
+    elif [["$Incompress" -eq 15]]; then
+        SRFSimpleFoam
+    fi
+}
 
+Lagrangian_option () {
+    read -p "
+    1.coalChemistryFoam
+    2.DPMFoam
+    3.icoUncoupledKinematicParcelDyMFoam
+    4.icoUncoupledKinematicParcelFoam
+    5.kinematicParcelFoam
+    6.MPPICDyMFoam
+    7.MIPPICFoam
+    8.reactingHeterogenousParcelFoam
+    9.reactingParcelFoam
+    10.simpleReactingParcelFoam
+    11.sprayFoam
+    12.uncoupledKinematicParelDyMFoam
+    Please Select and option from the Lagrangian Libary [1-12]:" lang
 }
 
 select_Lagrangian () {
+    Lagrangian_option
+    if [["$lang" -eq 1]]; then
+        coalChemistryFoam
+    elif [["$lang" -eq 2]]; then
+        DPMFoam
+    elif [["$lang" -eq 3]]; then
+        icoUncoupledKinematicParcelDyMFoam
+    elif [["$lang" -eq 4]]; then
+        icoUncoupledKinematicParcelFoam
+    elif [["$lang" -eq 5]]; then
+        kinematicParcelFoam
+    elif [["$lang" -eq 6]]; then
+        MPPICDyMFoam
+    elif [["$lang" -eq 7]]; then
+        MIPPICFoam
+    elif [["$lang" -eq 8]]; then
+        reactingHeterogenousParcelFoam
+    elif [["$lang" -eq 9]]; then
+        reactingParcelFoam
+    elif [["$lang" -eq 10]]; then
+        simpleReactingParcelFoam
+    elif [["$lang" -eq 11]]; then
+        sprayFoam
+    elif [["$lang" -eq 12]]; then
+        uncoupledKinematicParelDyMFoam
+    fi
+}
 
+Multiphase_option () {
+    read -p"
+    1.cavitatingFoam
+    2.compressibleInterDyMFoam
+    3.compressibleInterFoam
+    4.compressibleInterIsoFoam
+    5.compressibleMultiphaseInterFoam
+    6.driftFluxFoam
+    7.icoReactingMultiphaseInterFoam
+    8.interCondensatingEvaporatingFoam
+    9.interFoam
+    10.interIsoFoam
+    11.interMixingFoam
+    12.interPhaseChangeDyMFoam
+    13.interPhaseChangeFoam
+    14.MPPICInterFoam
+    15.multiphaseEulerFoam
+    16.multiphaseInterFoam
+    17.overCompressibleInterDyMFoam
+    18.overInterDyMfoam
+    19.overInterPHaseChangeDyMFoam
+    20.potentialFreeSurfaceDyMFoam
+    21.potentialFreeSurfaceFoam
+    22.reactingMultiphaseEulerFoam
+    23.reactingTwoPhaseEulerFoam
+    24.twoLiquidMixingFoam
+    25.twoPhaseEulerFoam" multi
 }
 
 select_Multiphase () {
+    Multiphase_option
+    if [["$multi" -eq 1]]; then
+        cavitatingFoam
+    elif [["$multi" -eq 2]]; then
+        compressibleInterDyMFoam
+    elif [["$multi" -eq 3]]; then
+        compressibleInterFoam
+    elif [["$multi" -eq 4]]; then
+        compressibleInterIsoFoam
+    elif [["$multi" -eq 5]]; then
+        compressibleMultiphaseInterFoam
+    elif [["$multi" -eq 6]]; then
+        driftFluxFoam
+    elif [["$multi" -eq 7]]; then
+        icoReactingMultiphaseInterFoam
+    elif [["$multi" -eq 8]]; then
+        interCondensatingEvaporatingFoam
+    elif [["$multi" -eq 9]]; then
+        interFoam
+    elif [["$multi" -eq 10]]; then
+        interIsoFoam
+    elif [["$multi" -eq 11]]; then
+        interMixingFoam
+    elif [["$multi" -eq 12]]; then
+        interPhaseChangeDyMFoam
+    elif [["$multi" -eq 13]]; then
+        interPhaseChangeFoam
+    elif [["$multi" -eq 14]]; then
+        MPPICInterFoam
+    elif [["$multi" -eq 15]]; then
+        multiphaseEulerFoam
+    elif [["$multi" -eq 16]]; then
+        multiphaseInterFoam
+    elif [["$multi" -eq 17]]; then
+        overCompressibleInterDyMFoam
+    elif [["$multi" -eq 18]]; then
+        overInterDyMfoam
+    elif [["$multi" -eq 19]]; then
+        overInterPhaseChangeDyMFoam
+    elif [["$multi" -eq 20]]; then
+        potentialFreeSurfaceDyMFoam
+    elif [["$multi" -eq 21]]; then
+        potentialFreeSurfaceFoam
+    elif [["$multi" -eq 22]]; then
+        reactingMultiphaseEulerFoam
+    elif [["$multi" -eq 23]]; then
+        reactingTwoPhaseEulerFoam
+    elif [["$multi" -eq 24]]; then
+        twoLiquidMixingFoam
+    elif [["$multi" -eq 25]]; then
+        twoPhaseEulerFoam
+    fi
 
 }
 
+Stress_Analysis_option () {
+    read -p "
+    1.solidDisplacementFoam
+    2.solidEquilibriumDisplacementFoam
+    Please select a Stress Analysis Libary[1-2]:" stress
+}
+
 select_StressAnalysis () {
-    
+    Stress_Analysis_option
+    if [["$stress" -eq 1]]; then
+        solidDisplacementFoam
+    elif [["$stress" -eq 2]]; then
+        solidEquilibriumDisplacementFoam
+    fi
 }
 
 select_lib_openFoam_option () {
